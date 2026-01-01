@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="25"
+      alignment="CENTER"
+      styleClass="root"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.MainController"
+      stylesheets="@../style.css">
+    
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Titre avec icône -->
+    <HBox alignment="CENTER" spacing="10">
+<Label text="Détection intelligente de spam avec IA" styleClass="label-title"/>
+    </HBox>
+    
+    <!-- Sous-titre -->
+  
+    
+    <VBox styleClass="container" spacing="20">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+        
+        <!-- Zone de texte -->
+        <VBox spacing="8">
+            <Label text="Entrez votre message :" 
+                   style="-fx-text-fill: #cbd5e1; -fx-font-weight: bold;"/>
+            <TextArea fx:id="inputText"
+                      promptText="Coller ou écrire votre message ici..."
+                      wrapText="true"
+                      styleClass="text-area"
+                      prefRowCount="6"
+                      prefWidth="500"/>
+        </VBox>
+        
+        <!-- Bouton de détection -->
+        <Button text=" Analyser le message"
+                onAction="#detectSpam"
+                styleClass="button"/>
+        
+        <!-- Résultat -->
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Résultat de l'analyse :" 
+                   style="-fx-text-fill: #94a3b8; -fx-font-weight: bold;"/>
+            
+            <Label fx:id="resultLabel"
+                   text="En attente..."
+                   styleClass="result-label"/>
+            
+            <!-- Indicateurs de statut -->
+            <HBox spacing="30" alignment="CENTER">
+                <HBox spacing="5">
+                    <Label text="●" style="-fx-text-fill: #10b981; -fx-font-size: 12px;"/>
+                    <Label text="HAM (Légitime)" style="-fx-text-fill: #cbd5e1; -fx-font-size: 12px;"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Label text="●" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                    <Label text="SPAM (Indésirable)" style="-fx-text-fill: #cbd5e1; -fx-font-size: 12px;"/>
+                </HBox>
+            </HBox>
+        </VBox>
+        
+        <!-- Statut du modèle -->
+        <Label fx:id="statusLabel"
+               text="Chargement du modèle..."
+               styleClass="status-label"/>
+    </VBox>
+    
+    <!-- Pied de page -->
+    <Label text="IA • JAVA • ONNX  • ayaeljahidi"
+           style="-fx-text-fill: #64748b; -fx-font-size: 11px; -fx-padding: 20 0 0 0;"/>
+</VBox>
